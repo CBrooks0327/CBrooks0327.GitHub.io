@@ -1,72 +1,125 @@
-var Diameter = 20;
-var changing, Yloc;
+var Flag =0;
 
-var step = 20;
-var newSz;
 
 function setup() {
-  createCanvas(600, 600);
-  // colorMode(237, 23, 201)
-  //background(23, 190, 237);
-  frameRate(20); 
-  changing =0;
-  Yloc =height/2;
+  
+  createCanvas(500, 500);
+  
+  // button = createButton('(im)Press Me');
+  // button.position(0, 0);
+  // button.size(20,20);
+  // button.mouseOver(changeColOver);
+  // button.mouseOut(changeColOut);
+  // button.mousePressed(ChangeVariable);
+  
+  // var col = color(100,100,200,128);    //  2 buttons are Dom elements--changing button color is doable but "involved"
+  // button.style("background-color",col);
+  
 }
 
 function draw() {
-  background(23, 190, 237);
+  background(19,247,243)
   
-  fill(237,23,187)
-  ellipse(changing,changing, 20, 20);
+fill(226,237,21)
+ellipse (height,0,150,150)
   
-  fill (237,32,21)
-  ellipse(changing,300, 20, 20); 
+  if (Flag === 0) {
+    fill(237,23,187);
   
-  fill (237,136,21)
-  ellipse(300,changing, 20, 20); 
+  //  noStroke ()
+  //  for (var = i = 0; i < 10; i ++) {
+  //  ellipse(150,50,80,80)
+  //  rotate(PI/5) }
+  // else 
+//  fill(10,200,200);
+ // rect(225, 125, 80,80);
+ //     fill(200,200,125)
   
-  fill (226,237,21)
-  ellipse(height-changing,changing, 20, 20);
-  
-  fill (21,237,39)
-  ellipse(width-changing,width-changing, 20, 20);
-  
-  fill(0,0,0)
-  ellipse(height-Yloc,height-Yloc, 20, 20);  
- 
-  fill (168,21,237)
- ellipse (width-changing,Yloc,20,20) 
- 
- fill (225,225,225)
- ellipse (changing,height-changing,20,20)
+stroke(0,255,0)
+  strokeWeight(3)
+  line(200,200, 200, 600)
 
- fill (21,78,237)
- ellipse (300,height-changing,20,20)
+  translate(200, 200);
+  noStroke();
+  for (var i = 0; i < 10; i ++) {
+    ellipse(0, 30, 20, 80);
+    rotate(PI/5);
+  }
+ 
+ translate(-200, -200);
+ 
+ stroke(0,255,0)
+  strokeWeight(3)
+  line(300,300, 200, 600)
+ 
+  
+  translate(300,300);
+  noStroke();
+  for (var i = 0; i < 10; i ++) {
+    ellipse(0, 30, 20, 80);
+    rotate(PI/5);
+  }
+  translate(-300, -300);
+
+  stroke(0,255,0)
+  strokeWeight (3)
+  line(400,400,400,600)
+  
+    stroke(0,255,0)
+  strokeWeight (3)
+  line(100,100,100,600) 
 
   
-  //1.  change the changing with each draw
- // changing = changing+20;
+  translate(100, 100);
+  noStroke();
   
-  //2. control speed
- // changing = changing+step;
+ for (var i = 0; i < 10; i ++) {
+   ellipse(0, 30, 20, 80);
+   rotate(PI/5);
+ }
+  translate(-100, -100);
+ 
+   
+translate(400, 400);
+  noStroke();
+ for (var i = 0; i < 10; i ++) {
+   ellipse(0, 30, 20, 80);
+   rotate(PI/5);
+   
+
+ }
+  translate(400, 400);
+    
+  }
   
-  //3.  How do we turn around?
- // if (changing > width) {
-//    step = -1*step;
- // }
- // changing = changing+step;*/
+}
+
+function changeColOver() {
+  var col = color(1,1,200,128);    //  2 buttons are Dom elements--changing button color is doable but "involved"
+  button.style("background-color",col);
+}
+
+function changeColOut() {
+  var col = color(100,100,200,128);    //  2 buttons are Dom elements--changing button color is doable but "involved"
+  button.style("background-color",col);
+}
+
+function mousePressed() {
   
-   //4.  How about bounce
-  if ((changing > width) || (changing < 0)){
-     step = -1*step;
-   }
-   changing = changing+step;  
-   
-   
-   
-   
-   
-   
-   //Can you make two other circles that changes along the diagonals?
+  distX = width - mouseX
+  distY = mouseY
   
+  distance = sqrt((distX ^ 2) + (distY ^ 2))
+  
+  // console.log(distance)
+  
+  if (Flag == 0) {
+    Flag = 1;
+  } else {
+    Flag = 0;
+  }
+}
+
+function ChangeVariable() {
+  console.log("The Flag Variable = "+Flag)
 }
