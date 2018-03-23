@@ -1,7 +1,10 @@
 var Flag =0;
 
-
-function setup() {
+   function setup() {
+  createCanvas(710, 200);
+  song.loop(); // song is ready to play during setup() because it was loaded during preload
+  background(0,255,0);
+  
   
   createCanvas(500, 500);
   
@@ -88,9 +91,30 @@ translate(400, 400);
    
 
  }
-  translate(400, 400);
+  translate(-400, -400);
     
   }
+  
+  noStroke();
+ fill (255,255,255) 
+  ellipse(360,60, 30, 30);
+
+  fill(255, 255,255)
+  ellipse(380,60,30,30)
+  
+  fill(255,255,255)
+  ellipse(400,60,30,30)
+  
+  
+  fill(255,255,255)
+  ellipse(180,60,30,30)
+  
+  fill(255,255,255)
+  ellipse(200,60,30,30)
+  
+  fill(255,255,255)
+ellipse(220,60,30,30)
+
   
 }
 
@@ -123,3 +147,31 @@ function mousePressed() {
 function ChangeVariable() {
   console.log("The Flag Variable = "+Flag)
 }
+
+
+var song;
+
+function preload() {
+  song = loadSound('assets/bird-whistling-a.wav');
+}
+
+
+
+function mousePressed() {
+  if ( song.isPlaying() ) { // .isPlaying() returns a boolean
+    song.pause(); // .play() will resume from .pause() position
+    background(255,0,0);
+  } else {
+    song.play();
+    background(0,255,0);
+  }
+}
+
+//function setup() {
+  //createCanvas(710,200);//Play with 
+ // background(228,232,30);
+ // fill(0,0,0);
+  //strokeWeight(4)
+ 
+
+
